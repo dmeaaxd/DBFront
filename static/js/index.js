@@ -66,7 +66,7 @@ if (token) {
                 const goToModelButton = document.createElement('button'); // Кнопка "Перейти в модель"
                 goToModelButton.textContent = 'Перейти в модель';
                 goToModelButton.addEventListener('click', function () {
-                    window.location.href = `./model/model.html?name=${model.name}&id=${model.id}`;
+                    window.location.href = `./model/model.html?id=${model.id}`;
                 });
 
 

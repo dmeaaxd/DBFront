@@ -5,7 +5,6 @@ const urlParams = new URLSearchParams(window.location.search);
 // const token = urlParams.get('token');
 const token = sessionStorage.getItem('token');
 
-
 const modelId = urlParams.get('id');
 
 

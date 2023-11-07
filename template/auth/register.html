@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<h2>Регистрация</h2>
+<form id="registerForm">
+    <label for="regUsername"></label>
+    <input type="text" id="regUsername"  name="regUsername" placeholder="Логин" required>
+    <br>
+    <label for="regPassword1"></label>
+    <input type="password" id="regPassword1" name="regPassword1" placeholder="Пароль" required>
+    <br>
+    <label for="regPassword2"></label>
+    <input type="password" id="regPassword2" name="regPassword2" placeholder="Повторите пароль" required>
+    <br>
+    <input type="submit" value="Зарегистрироваться">
+</form>
+
+<div id="error" style="display: none; color: red;"></div>
+
+<script src="../../static/js/auth/register.js"></script>
+</body>
+</html>

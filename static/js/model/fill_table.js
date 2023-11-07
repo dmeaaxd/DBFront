@@ -1,6 +1,5 @@
 // Получение name и id модели из URL
 const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name');
 const id = urlParams.get('id');
 
 // Получение токена пользователя из URL
@@ -8,7 +7,7 @@ const id = urlParams.get('id');
 token = sessionStorage.getItem('token');
 
 
-if (name && id) {
+if (id) {
     fetch('http://127.0.0.1:8000/finance/dates', {
         method: 'POST',
         headers: {

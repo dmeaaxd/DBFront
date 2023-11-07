@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Страница авторизации</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+<body>
+<h2>Авторизация</h2>
+<form id="loginForm">
+    <label for="username"></label>
+    <input type="text" id="username" name="username" placeholder="Логин" required>
+    <br>
+    <label for="password"></label>
+    <input type="password" id="password" name="password" placeholder="Пароль" required>
+    <br>
+    <input type="submit" value="Войти">
+    <br>
+</form>
+<a href="register.html">
+    <input type="submit" value="Регистрация">
+</a>
+
+<div id="error" style="display: none; color: red;"></div>
+
+<script src="../../static/js/auth/login.js"></script>
+</body>
+</html>

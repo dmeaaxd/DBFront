@@ -8,9 +8,13 @@
 <body>
 <h1>Данные пользователя</h1>
 <div id="userData"></div>
+<button id="logout" onclick="sessionStorage.removeItem('token'); window.location.href='auth/login.html'">Выйти</button><br>
 
 
-<button id="createModel">Новая модель</button>
+
+<h2>Список моделей</h2>
+
+<button id="createModel">Новая модель</button><br>
 
 <div id="createNewModel" style="display: none;">
     <form id="createNewModelForm">
@@ -23,8 +27,6 @@
     </form>
 </div>
 
-
-<h2>Список моделей</h2>
 <div id="modelList"></div>
 
 <script src="../static/js/index.js"></script>
