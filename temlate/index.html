@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Модель</title>
+
+</head>
+<body>
+<h1>Данные пользователя</h1>
+<div id="userData"></div>
+
+
+<button id="createModel">Новая модель</button>
+
+<div id="createNewModel" style="display: none;">
+    <form id="createNewModelForm">
+        <input type="text" id="newModelName" required placeholder="Название"><br>
+        <input type="text" id="newModelAmount" required placeholder="Начальная сумма"><br>
+        <input type="text" id="newModelStartDate" required placeholder="Начальная дата"><br>
+        <input type="text" id="newModelFinishDate" required placeholder="Дата завершения"><br>
+
+        <button id="createButton">Сохранить</button>
+    </form>
+</div>
+
+
+<h2>Список моделей</h2>
+<div id="modelList"></div>
+
+<script src="../static/js/index.js"></script>
+</body>
+</html>

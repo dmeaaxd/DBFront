@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Модель</title>
+    <script src="../../static/js/model/fill_table.js"></script>
+</head>
+<body>
+
+<!-- Кнопка "Добавить реальную сумму" -->
+<button id="addExpenseButton">Добавить реальную сумму</button>
+
+<!-- Кнопка "Доходы" -->
+<button id="profitsButton">Доходы</button>
+
+<!-- Кнопка "Расходы" -->
+<button id="expensesButton">Расходы</button>
+
+
+<!-- Модальное окно для добавления реальной суммы -->
+<div id="expenseModal" style="display: none;">
+    <h2>Заполните форму</h2>
+    <form id="expenseForm">
+        <label for="expenseDate" autocomplete="off"></label>
+        <input type="text" id="expenseDate" required placeholder="гггг-мм-дд"><br>
+
+        <label for="expenseAmount"></label>
+        <input type="text" id="expenseAmount" required placeholder="Сумма"><br>
+
+        <label for="expenseComment"></label>
+        <input type="text" id="expenseComment" placeholder="Комментарий"><br>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+
+
+
+<div id="tableContainer">
+    <table border="1" cellpadding="4" cellspacing="0">
+        <thead>
+        <tr>
+            <th rowspan="2">Дата</th>
+            <th colspan="2">Модель</th>
+            <th colspan="2">Реальность</th>
+            <th rowspan="2">Разница</th>
+        </tr>
+        <tr>
+            <th>Сумма</th>
+            <th>Финансовые операции</th>
+            <th>Сумма</th>
+            <th>Комментарий</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        <!-- Данные будут вставлены сюда -->
+        </tbody>
+    </table>
+</div>
+
+
+
+
+<script>
+    document.getElementById('profitsButton').addEventListener('click', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+
+        const modelId = urlParams.get('id');
+
+        // Перенаправление на страницу profits.html с параметром id
+        window.location.href = `profits.html?id=${modelId}`
+    })
+
+    document.getElementById('expensesButton').addEventListener('click', function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        const modelId = urlParams.get('id');
+
+        // Перенаправление на страницу profits.html с параметром id
+        window.location.href = `expenses.html?id=${modelId}`
+    })
+</script>
+
+<script src="../../static/js/model/update_realAmount.js"></script>
+
+</body>
+</html>

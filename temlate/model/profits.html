@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Доходы</title>
+    <script src="../../static/js/model/profits/fill_table.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+
+</head>
+<body>
+
+<!-- Кнопка "Добавить доход" -->
+<button id="createProfit">Добавить</button>
+
+
+
+
+<!-- Модальное окно для добавления дохода -->
+<div id="profitModal" style="display: none;">
+    <form id="profitForm">
+        <!-- Выбор типа дохода -->
+        <select id="incomeType" name="incomeType" class="profitType">
+            <option selected disabled>Выберите тип дохода</option>
+            <option value="option1">Каждый день</option>
+            <option value="option2">Каждый месяц</option>
+            <option value="option3">Каждый год</option>
+            <option value="option4">Пользовательский</option>
+            <option value="option5">Без повтора</option>
+        </select>
+    </form>
+</div>
+
+<div id="everyDMY_model" style="display: none">
+    <form id="everyDMY_form" autocomplete="off">
+        <label for="amount"></label>
+        <input type="text" id="everyDMY_amount" required placeholder="Сумма"><br>
+
+        <label for="name"></label>
+        <input type="text" id="everyDMY_name" required placeholder="Название"><br>
+
+        <label for="startDate"></label>
+        <input type="text" id="everyDMY_startDate" required placeholder="гггг-мм-дд"><br>
+
+        <label for="finishDate"></label>
+        <input type="text" id="everyDMY_finishDate" required placeholder="гггг-мм-дд"><br>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+
+<div id="custom_model" style="display: none">
+    <form id="custom_form" autocomplete="off">
+        <label for="amount"></label>
+        <input type="text" id="custom_amount" required placeholder="Сумма"><br>
+
+        <label for="name"></label>
+        <input type="text" id="custom_name" required placeholder="Название"><br>
+
+        <label for="replayDays"></label>
+        <input type="text" id="custom_replayDays" required placeholder="День повтора"><br>
+
+        <label for="startDate"></label>
+        <input type="text" id="custom_startDate" required placeholder="гггг-мм-дд"><br>
+
+        <label for="finishDate"></label>
+        <input type="text" id="custom_finishDate" required placeholder="гггг-мм-дд"><br>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+
+<div id="withoutRepeats_model" style="display: none">
+    <form id="withoutRepeats_form" autocomplete="off">
+        <label for="amount"></label>
+        <input type="text" id="withoutRepeats_amount" required placeholder="Сумма"><br>
+
+        <label for="name"></label>
+        <input type="text" id="withoutRepeats_name" required placeholder="Название"><br>
+
+        <label for="startDate"></label>
+        <input type="text" id="withoutRepeats_startDate" required placeholder="гггг-мм-дд"><br>
+
+        <button type="submit">Сохранить</button>
+    </form>
+</div>
+
+
+
+
+<div id="tableContainer">
+    <table border="1" cellPadding="4" cellSpacing="0">
+        <thead>
+        <tr>
+            <th>Дата</th>
+            <th>Имя</th>
+            <th>Сумма</th>
+            <th>Тип повтора</th>
+            <th>Действие</th>
+        </tr>
+        </thead>
+        <tbody id="tableBody">
+        <!-- Данные будут вставлены сюда -->
+        </tbody>
+    </table>
+</div>
+
+
+<script src="../../static/js/model/profits/add_newProfit.js"></script>
+
+
+</body>
+</html>
