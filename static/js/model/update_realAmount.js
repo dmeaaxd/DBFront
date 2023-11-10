@@ -7,7 +7,7 @@ function openExpenseModal() {
 }
 
 // Обработчик клика на кнопке "Добавить расход"
-document.getElementById('addExpenseButton').addEventListener('click', openExpenseModal);
+document.getElementById('addRealAmountButton').addEventListener('click', openExpenseModal);
 
 // Обработчик отправки формы добавления расхода
 document.getElementById('expenseForm').addEventListener('submit', (e) => {

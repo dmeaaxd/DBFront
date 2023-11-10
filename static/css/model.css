@@ -1,0 +1,131 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.controlPanel, #tableContainer {
+    box-sizing: border-box;
+    padding: 30px;
+}
+
+#tableContainer {
+    min-width: 670px;
+    background-color: #fff;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 60px;
+    text-align: center;
+}
+
+.controlPanel {
+    position: fixed;
+    left: 70%;
+    /*top: 200px;*/
+    top: 19%;
+    transform: translateY(-50%);
+
+    background-color: #fff;
+    width: 200px;
+    padding: 10px 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 50px;
+    text-align: center;
+}
+
+#saveRealAmount,
+#addRealAmountButton,
+#expensesButton,
+#profitsButton {
+    width: 94%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#addRealAmountButton:hover,
+#expensesButton:hover,
+#profitsButton:hover {
+    background-color: #0052a9;
+}
+
+#addRealAmountButton {
+    background-color: #a2a2a2;
+}
+
+#addRealAmountButton:hover {
+    background-color: #6b6b6b;
+}
+
+#backToIndex {
+    position: fixed;
+    left: 70%;
+    top: 22px;
+    transform: translateY(-50%);
+
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 50px;
+    text-align: center;
+
+    color: #007bff;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 200px;
+}
+
+#backToIndex:hover {
+    background-color: #ababab;
+}
+
+input[type="date"],
+input[type="text"] {
+    padding: 10px;
+    margin: 10px 0 0px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 94%;
+}
+
+#saveRealAmount{
+    width: 94%;
+    background-color: #17a200;
+}
+
+#saveRealAmount:hover{
+    background-color: #0d6500;
+}
+
+#tableProfit,
+#tableExpense {
+    text-align: left;
+}
+
+#expensesButton,
+#profitsButton {
+    width: 44%;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+

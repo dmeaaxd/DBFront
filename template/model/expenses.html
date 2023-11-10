@@ -3,114 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <title>Расходы</title>
-    <script src="../../static/js/model/expenses/fill_table.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
+    <link rel="stylesheet" href="../../static/css/profits-expenses.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 </head>
 <body>
 
-<button id="backToIndex" onclick="window.location.href='../index.html'">На главную страницу</button>
+<button id="backToIndex" onclick="window.location.href='../index.html'"><i class="fa-solid fa-house"></i></button>
 
-<button id="backToModel" >В модель</button>
+<button id="backToModel" ><i class="fa-solid fa-table"></i></button>
 
-<!-- Кнопка "Добавить расход" -->
-<button id="createExpense">Добавить расход</button>
+<div class="container">
+    <div id="tableContainer">
+        <table border="1" cellPadding="4" cellSpacing="0">
+            <thead>
+            <tr>
+                <th style="width: 80px">Дата</th>
+                <th style="width: 150px">Имя</th>
+                <th style="width: 90px">Сумма</th>
+                <th style="width: 120px">Тип повтора</th>
+                <th style="width: 120px">Действие</th>
+            </tr>
+            </thead>
+            <tbody id="tableBody">
+            <!-- Данные будут вставлены сюда -->
+            </tbody>
+        </table>
+    </div>
 
 
-<!-- Модальное окно для добавления расхода -->
-<div id="expenseModal" style="display: none;">
-    <form id="expenseForm">
-        <!-- Выбор типа расхода -->
-        <select id="incomeType" name="incomeType" class="profitType">
-            <option selected disabled>Выберите тип расхода</option>
-            <option value="option1">Каждый день</option>
-            <option value="option2">Каждый месяц</option>
-            <option value="option3">Каждый год</option>
-            <option value="option4">Пользовательский</option>
-            <option value="option5">Без повтора</option>
-        </select>
-    </form>
+    <div class="controlPanel">
+        <!-- Кнопка "Добавить расход" -->
+        <button id="createExpense">Добавить расход</button>
+
+        <!-- Модальное окно для добавления расхода -->
+        <div id="expenseModal" style="display: none;">
+            <form id="expenseForm">
+                <!-- Выбор типа расхода -->
+                <select id="incomeType" name="incomeType" class="profitType">
+                    <option selected disabled>Тип расхода</option>
+                    <option value="option1">Каждый день</option>
+                    <option value="option2">Каждый месяц</option>
+                    <option value="option3">Каждый год</option>
+                    <option value="option4">Пользовательский</option>
+                    <option value="option5">Без повтора</option>
+                </select>
+            </form>
+        </div>
+
+        <div id="everyDMY_model" style="display: none">
+            <form id="everyDMY_form" autocomplete="off">
+                <label for="amount"></label>
+                <input type="text" id="everyDMY_amount" required placeholder="Сумма"><br>
+
+                <label for="name"></label>
+                <input type="text" id="everyDMY_name" required placeholder="Название"><br>
+
+                <label for="startDate"></label>
+                <input type="date" id="everyDMY_startDate" required placeholder="гггг-мм-дд"><br>
+
+                <label for="finishDate"></label>
+                <input type="date" id="everyDMY_finishDate" required placeholder="гггг-мм-дд"><br>
+
+                <button id="saveButton" type="submit">Сохранить</button>
+            </form>
+        </div>
+
+        <div id="custom_model" style="display: none">
+            <form id="custom_form" autocomplete="off">
+                <label for="amount"></label>
+                <input type="text" id="custom_amount" required placeholder="Сумма"><br>
+
+                <label for="name"></label>
+                <input type="text" id="custom_name" required placeholder="Название"><br>
+
+                <label for="replayDays"></label>
+                <input type="text" id="custom_replayDays" required placeholder="День повтора"><br>
+
+                <label for="startDate"></label>
+                <input type="date" id="custom_startDate" required placeholder="гггг-мм-дд"><br>
+
+                <label for="finishDate"></label>
+                <input type="date" id="custom_finishDate" required placeholder="гггг-мм-дд"><br>
+
+                <button id="saveButton" type="submit">Сохранить</button>
+            </form>
+        </div>
+
+        <div id="withoutRepeats_model" style="display: none">
+            <form id="withoutRepeats_form" autocomplete="off">
+                <label for="amount"></label>
+                <input type="text" id="withoutRepeats_amount" required placeholder="Сумма"><br>
+
+                <label for="name"></label>
+                <input type="text" id="withoutRepeats_name" required placeholder="Название"><br>
+
+                <label for="startDate"></label>
+                <input type="date" id="withoutRepeats_startDate" required placeholder="гггг-мм-дд"><br>
+
+                <button id="saveButton" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
 </div>
 
-<div id="everyDMY_model" style="display: none">
-    <form id="everyDMY_form" autocomplete="off">
-        <label for="amount"></label>
-        <input type="text" id="everyDMY_amount" required placeholder="Сумма"><br>
-
-        <label for="name"></label>
-        <input type="text" id="everyDMY_name" required placeholder="Название"><br>
-
-        <label for="startDate"></label>
-        <input type="text" id="everyDMY_startDate" required placeholder="гггг-мм-дд"><br>
-
-        <label for="finishDate"></label>
-        <input type="text" id="everyDMY_finishDate" required placeholder="гггг-мм-дд"><br>
-
-        <button type="submit">Сохранить</button>
-    </form>
-</div>
-
-<div id="custom_model" style="display: none">
-    <form id="custom_form" autocomplete="off">
-        <label for="amount"></label>
-        <input type="text" id="custom_amount" required placeholder="Сумма"><br>
-
-        <label for="name"></label>
-        <input type="text" id="custom_name" required placeholder="Название"><br>
-
-        <label for="replayDays"></label>
-        <input type="text" id="custom_replayDays" required placeholder="День повтора"><br>
-
-        <label for="startDate"></label>
-        <input type="text" id="custom_startDate" required placeholder="гггг-мм-дд"><br>
-
-        <label for="finishDate"></label>
-        <input type="text" id="custom_finishDate" required placeholder="гггг-мм-дд"><br>
-
-        <button type="submit">Сохранить</button>
-    </form>
-</div>
-
-<div id="withoutRepeats_model" style="display: none">
-    <form id="withoutRepeats_form" autocomplete="off">
-        <label for="amount"></label>
-        <input type="text" id="withoutRepeats_amount" required placeholder="Сумма"><br>
-
-        <label for="name"></label>
-        <input type="text" id="withoutRepeats_name" required placeholder="Название"><br>
-
-        <label for="startDate"></label>
-        <input type="text" id="withoutRepeats_startDate" required placeholder="гггг-мм-дд"><br>
-
-        <button type="submit">Сохранить</button>
-    </form>
-</div>
 
 
 
 
-<div id="tableContainer">
-    <table border="1" cellPadding="4" cellSpacing="0">
-        <thead>
-        <tr>
-            <th>Дата</th>
-            <th>Имя</th>
-            <th>Сумма</th>
-            <th>Тип повтора</th>
-            <th>Действие</th>
-        </tr>
-        </thead>
-        <tbody id="tableBody">
-        <!-- Данные будут вставлены сюда -->
-        </tbody>
-    </table>
-</div>
-
-
+<script src="../../static/js/model/expenses/fill_table.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="../../static/js/utils.js"></script>
 <script src="../../static/js/model/navButtons.js"></script>
 <script src="../../static/js/model/expenses/add_newExpense.js"></script>
-
 
 </body>
 </html>

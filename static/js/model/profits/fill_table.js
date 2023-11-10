@@ -56,6 +56,7 @@ if (modelId) {
                 // Создаем кнопку "Удалить"
                 const deleteButton = document.createElement("button");
                 deleteButton.textContent = "Удалить";
+                deleteButton.id = 'deleteButton';
                 deleteButton.addEventListener("click", () => {
                     fetch('http://127.0.0.1:8000/finance/profits', {
                         method: 'POST',
@@ -86,6 +87,7 @@ if (modelId) {
                 // Создаем кнопку "Редактировать"
                 const editButton = document.createElement("button");
                 editButton.textContent = "Редактировать";
+                editButton.id = 'editButton';
                 editButton.addEventListener("click", () => {
 
                     if (item.replayType.id === '4') {
@@ -275,16 +277,16 @@ if (modelId) {
 
                 // Создаем ячку для кнопок
                 const actionCell = row.insertCell(4);
-                actionCell.appendChild(deleteButton);
                 actionCell.appendChild(editButton);
+                actionCell.appendChild(deleteButton);
 
 
                 if (!item.finishDate) {
-                    cellDate.textContent = item.startDate;
-                } else cellDate.textContent = `${item.startDate} - ${item.finishDate}`;
+                    cellDate.textContent = formatDate(item.startDate);
+                } else cellDate.textContent = `${formatDate(item.startDate)} - ${formatDate(item.finishDate)}`;
 
                 cellName.textContent = item.name;
-                cellAmount.textContent = item.amount;
+                cellAmount.textContent = formatAmount(item.amount);
 
                 if (item.replayType.id !== '4') {
                     cellReplayType.textContent = item.replayType.name;

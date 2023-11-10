@@ -29,7 +29,7 @@ document.getElementById('loginForm').addEventListener('submit', function (e) {
                 window.location.href = `../index.html`;
             } else {
                 // Ошибка авторизации, отобразите сообщение об ошибке
-                document.getElementById('error').textContent = 'Ошибка';
+                document.getElementById('error').textContent = 'Ошибка авторизации';
                 document.getElementById('error').style.display = 'block';
             }
         })

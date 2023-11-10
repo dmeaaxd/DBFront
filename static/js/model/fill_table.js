@@ -62,30 +62,38 @@ if (id) {
 
 
                 // Вставляем данные в ячейки
-                cellDate.textContent = item.date;
-                cellModelAmount.textContent = item.amount;
+                cellDate.textContent = formatDate(item.date);
+                cellModelAmount.textContent = formatAmount(item.amount);
 
                 // Финансовые операции (каждая операция в новой строке)
                 item.profits.forEach(profit => {
                     const profitRow = document.createElement('div');
-                    profitRow.textContent = `${profit.name} +${profit.amount}`;
+                    profitRow.id = 'tableProfit';
+                    profitRow.textContent = formatFinanceOperation('profit', profit.name, profit.amount);
+                    profitRow.style.color = 'green';
                     cellFinancialOps.appendChild(profitRow);
                 });
                 item.expenses.forEach(expense => {
                     const expenseRow = document.createElement('div');
-                    expenseRow.textContent = `${expense.name} -${expense.amount}`;
+                    expenseRow.id = 'tableExpense';
+                    expenseRow.textContent = formatFinanceOperation('expense', expense.name, expense.amount);
+                    expenseRow.style.color = 'red';
                     cellFinancialOps.appendChild(expenseRow);
                 });
 
-                cellRealityAmount.textContent = item.realAmount;
+                if (item.realAmount != null) {
+                    cellRealityAmount.textContent = formatAmount(item.realAmount);
+                } else {
+                    cellRealityAmount.textContent = null;
+                }
                 cellComment.textContent = item.comment;
 
                 // Проверка наличия реальной суммы перед отображением разницы
                 if (item.realAmount !== null) {
-                    const difference = item.realAmount - item.amount;
+                    const difference = formatAmount(item.realAmount - item.amount);
                     cellDifference.textContent = difference;
                 } else {
-                    const difference = "-";
+                    const difference = null;
                     cellDifference.textContent = difference;
                 }
 

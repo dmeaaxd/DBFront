@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Модель</title>
-
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-<h1>Данные пользователя</h1>
+<header>
+    <div id="userData"></div>
+    <button id="logout" onclick="sessionStorage.removeItem('token'); window.location.href='auth/login.html'">
+        <i class="fas fa-sign-out-alt fa-lg"></i>
+    </button>
+</header>
+
 <div id="userData"></div>
-<button id="logout" onclick="sessionStorage.removeItem('token'); window.location.href='auth/login.html'">Выйти</button><br>
-
-
 
 <h2>Список моделей</h2>
 
-<button id="createModel">Новая модель</button><br>
+
+<div id="modelList"></div>
+
+<button id="createModelButton"><i class="fas fa-plus"></i> Новая модель</button><br>
 
 <div id="createNewModel" style="display: none;">
     <form id="createNewModelForm">
@@ -27,8 +34,8 @@
     </form>
 </div>
 
-<div id="modelList"></div>
 
 <script src="../static/js/index.js"></script>
+<script src="../static/js/utils.js"></script>
 </body>
 </html>

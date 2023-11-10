@@ -4,6 +4,7 @@
 
 token = sessionStorage.getItem('token');
 
+
 // Проверка, есть ли токен в URL
 if (token) {
     // Выполнение запроса GraphQL с использованием токена
@@ -46,46 +47,48 @@ if (token) {
         .then(data => {
             // Обработка и вывод данных пользователя
             const user = data.data.me;
-            const userData = `
-                    <p>Имя пользователя: ${user.username}</p>
-                    <!--Другие данные пользователя-->
-                `;
-            document.getElementById('userData').innerHTML = userData;
 
             // Обработка и вывод списка моделей
             const modelList = user.modelSet;
             const modelListElement = document.getElementById('modelList');
             modelList.forEach(model => {
+
                 const modelBlock = document.createElement('div'); // Создаем блок для модели
+                modelBlock.id = 'modelBlock';
+                const modelInfo = document.createElement('div');
+                modelInfo.id = 'modelInfo';
+
                 modelBlock.innerHTML = `
-                        <p>${model.name}</p>
-                        <p>${model.startAmount}</p>
-                        <p>${model.startDate} - ${model.finishDate}</p>
+                        <h3>${model.name}</h3>
+                        <p>Начальный капитал: ${formatAmount(model.startAmount)}</p>
+                        <p>${formatDate(model.startDate)} - ${formatDate(model.finishDate)}</p>
                     `;
 
                 const goToModelButton = document.createElement('button'); // Кнопка "Перейти в модель"
+                goToModelButton.id = 'goToModelButton';
                 goToModelButton.textContent = 'Перейти в модель';
                 goToModelButton.addEventListener('click', function () {
-                    window.location.href = `./model/model.html?id=${model.id}`;
+                    window.location.href = `model/model.html?id=${model.id}`;
                 });
 
 
                 const editButton = document.createElement('button'); // Кнопка "Редактировать"
+                editButton.id = 'editButton';
                 editButton.textContent = 'Редактировать';
                 // Кнопка "Редактировать"
                 editButton.addEventListener('click', function () {
+
                     const editForm = modelBlock.querySelector('.edit-form');
 
+
                     if (!editForm) {
-                        // Если формы ещё нет, создаем её
                         const newEditForm = document.createElement('div');
                         newEditForm.classList.add('edit-form');
-
                         newEditForm.innerHTML = `
                                 <input id="editModelName" required type="text" placeholder="Название" value="${model.name}"><br>
                                 <input id="editModelStartAmount" required type="text" placeholder="Начальная сумма" value="${model.startAmount}"><br>
-                                <input id="editModelStartDate" required type="text" placeholder="Начальная дата" value="${model.startDate}"><br>
-                                <input id="editModelFinishDate" required type="text" placeholder="Дата завершения" value="${model.finishDate}"><br>
+                                <input id="editModelStartDate" required type="date" placeholder="Начальная дата" value="${model.startDate}"><br>
+                                <input id="editModelFinishDate" required type="date" placeholder="Дата завершения" value="${model.finishDate}"><br>
                                 <button id="saveModelChanges">Сохранить</button>
                             `;
 
@@ -136,6 +139,7 @@ if (token) {
 
 
                 const deleteButton = document.createElement('button'); // Кнопка "Удалить"
+                deleteButton.id = 'deleteButton';
                 deleteButton.textContent = 'Удалить';
                 deleteButton.addEventListener('click', function () {
 
@@ -183,7 +187,7 @@ if (token) {
 
 
     // Обработчик события для кнопки "Новая модель"
-    const createModelButton = document.getElementById('createModel');
+    const createModelButton = document.getElementById('createModelButton');
     createModelButton.addEventListener('click', function () {
         const createModelForm = document.getElementById('createNewModel');
         createModelForm.style.display = 'block'; // Отображаем форму

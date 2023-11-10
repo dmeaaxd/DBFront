@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f3f3;
+    margin: 0;
+    padding: 0;
+    /*zoom: 150%;*/
+}
+
+/*header {*/
+/*    background-color: #007bff;*/
+/*    color: #f3f3f3;*/
+/*    font-size: 10px;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    padding: 20px;*/
+/*    margin-left: 89%;*/
+/*    border-radius: 10px;*/
+/*}*/
+
+
+#username {
+    margin: 0;
+    padding: 0;
+}
+
+#logout {
+    position: fixed;
+    left: 70%;
+    top: 22px;
+    transform: translateY(-50%);
+
+    background-color: #fff;
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px 50px;
+    text-align: center;
+
+    color: #007bff;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: 20px;
+    width: 200px;
+}
+
+#logout:hover {
+    background-color: #ababab;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+#createModelButton {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#createNewModelForm,
+#modelBlock {
+    background-color: #fff;
+    max-width: 300px;
+    padding: 10px 10px 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    text-align: center;
+}
+
+#createButton,
+#createModelButton,
+#saveModelChanges,
+#editButton,
+#deleteButton,
+#goToModelButton {
+    width: 94%;
+    padding: 10px;
+    background-color: #a2a2a2;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+#createButton:hover,
+#createModelButton:hover,
+#saveModelChanges:hover,
+#editButton:hover,
+#deleteButton:hover,
+#goToModelButton:hover {
+    background-color: #6b6b6b;
+}
+
+
+#editButton {
+    background-color: #007bff;
+    width: 45%;
+    margin-right: 12px;
+}
+
+#editButton:hover {
+    background-color: #0052a9;
+}
+
+#deleteButton {
+    background-color: #de0000;
+    width: 45%;
+}
+
+#deleteButton:hover {
+    background-color: #8d0000;
+}
+
+input[type="text"],
+input[type="date"] {
+    padding: 10px;
+    margin: 10px 0 0px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
+    box-sizing: border-box;
+    width: 94%;
+}
+
+#createButton,
+#saveModelChanges {
+    width: 94%;
+    background-color: #17a200;
+}
+
+#createButton:hover,
+#saveModelChanges:hover {
+    background-color: #0d6500;
+}
+
+#createModelButton {
+    width: 15%;
+    background-color: #17a200;
+}
+
+#createModelButton:hover {
+    background-color: #0d6500;
+}
+
