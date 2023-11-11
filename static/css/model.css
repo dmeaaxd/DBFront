@@ -20,7 +20,7 @@ body {
 }
 
 #tableContainer {
-    min-width: 670px;
+    min-width: 700px;
     background-color: #fff;
     max-width: 300px;
     border-radius: 10px;
@@ -133,20 +133,23 @@ input[type="text"] {
 .table {
     width: 100%;
     border: none;
-    margin-bottom: 20px;
 }
 .table thead th {
     font-weight: bold;
-    border: none;
     padding: 10px 15px;
     background: #d8d8d8;
     font-size: 14px;
+    border-radius: 8px 8px 8px 8px;
+    border: 1px solid white;
+
 }
 .table thead tr th:first-child {
-    border-radius: 8px 0 0 8px;
+    border-radius: 8px 8px 8px 8px;
+    /*border: 1px solid white;*/
 }
 .table thead tr th:last-child {
-    border-radius: 0 8px 8px 0;
+    border-radius: 8px 8px 8px 8px;
+    /*border: 1px solid white;*/
 }
 .table tbody td {
     border: none;
